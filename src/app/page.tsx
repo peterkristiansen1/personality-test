@@ -1,5 +1,5 @@
 import styles from './page.module.css'
-import { getItems, getQuestions } from '@alheimsins/b5-johnson-120-ipip-neo-pi-r';
+import { getItems } from '@alheimsins/b5-johnson-120-ipip-neo-pi-r';
 
 interface Choice {
   text: string;
@@ -19,10 +19,9 @@ interface Item {
 
 export default function Home() {
   const items: Item[] = getItems();
-  const questions = getQuestions();
   return (
     <main className={styles.main}>
-      <h1>Test</h1>
+      <h1>Big Five Test</h1>
       <form>
         {items.map((item) => (
           <fieldset key={item.id}>
