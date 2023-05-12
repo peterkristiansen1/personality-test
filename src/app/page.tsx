@@ -25,25 +25,31 @@ export default function Home() {
       <form action="/result" method="get" className={styles.form}>
         {items.map((item) => (
           <fieldset key={item.id} className={styles.question}>
-            <legend className={styles.text}>{item.text}</legend>
-            {item.choices.map((choice) => (
-              <div key={choice.score} className={styles.choice}>
-                {/* TODO: Make input required */}
-                <input
-                  type="radio"
-                  id={`${item.num}-${choice.score}`}
-                  name={`${item.domain}${item.facet}`}
-                  value={choice.score}
-                  className={styles.radioInput}
-                />
-                <label
-                  htmlFor={`${item.num}-${choice.score}`}
-                  className={styles.choiceText}
-                >
-                  {choice.text}
-                </label>
-              </div>
-            ))}
+            <div className={styles.gridContainer}>
+              <legend className={styles.text}>{item.text}</legend>
+              <img
+                src="https://source.unsplash.com/random?people"
+                className={styles.image}
+              />
+              {item.choices.map((choice) => (
+                <div key={choice.score} className={styles.choice}>
+                  {/* TODO: Make input required */}
+                  <input
+                    type="radio"
+                    id={`${item.num}-${choice.score}`}
+                    name={`${item.domain}${item.facet}`}
+                    value={choice.score}
+                    className={styles.radioInput}
+                  />
+                  <label
+                    htmlFor={`${item.num}-${choice.score}`}
+                    className={styles.choiceText}
+                  >
+                    {choice.text}
+                  </label>
+                </div>
+              ))}
+            </div>
           </fieldset>
         ))}
         <div className={styles.submitWrapper}>
