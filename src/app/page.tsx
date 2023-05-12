@@ -19,6 +19,8 @@ interface Item {
 
 export default function Home() {
   const items: Item[] = getItems();
+  const getImageUrl = (query) =>
+    `https://source.unsplash.com/random?${query.replace(/\s/g, "-")}`;
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -33,10 +35,7 @@ export default function Home() {
                 <span className={styles.number}>{item.num}</span>
                 <span className={styles.text}>{item.text}</span>
               </legend>
-              <img
-                src="https://source.unsplash.com/random?people"
-                className={styles.image}
-              />
+              <img src={getImageUrl(item.text)} className={styles.image} />
               {item.choices.map((choice) => (
                 <div key={choice.score} className={styles.choice}>
                   {/* TODO: Make input required */}
