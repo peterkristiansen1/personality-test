@@ -19,31 +19,37 @@ interface Item {
 
 export default function Home() {
   const items: Item[] = getItems();
-  console.log(items[0]);
   return (
     <main className={styles.main}>
       <h1>Big Five Test</h1>
-      <form action="/result" method="get">
+      <form action="/result" method="get" className={styles.form}>
         {items.map((item) => (
-          <fieldset key={item.id}>
-            <legend>{item.text}</legend>
+          <fieldset key={item.id} className={styles.question}>
+            <legend className={styles.text}>{item.text}</legend>
             {item.choices.map((choice) => (
-              <div key={choice.score}>
+              <div key={choice.score} className={styles.choice}>
                 {/* TODO: Make input required */}
                 <input
                   type="radio"
                   id={`${item.num}-${choice.score}`}
                   name={`${item.domain}${item.facet}`}
                   value={choice.score}
+                  className={styles.radioInput}
                 />
-                <label htmlFor={`${item.num}-${choice.score}`}>
+                <label
+                  htmlFor={`${item.num}-${choice.score}`}
+                  className={styles.choiceText}
+                >
                   {choice.text}
                 </label>
               </div>
             ))}
           </fieldset>
         ))}
-        <button type="submit">Show result</button>
+        <div className={styles.submitWrapper}>
+          You've reached the end.
+          <button type="submit">Show result</button>
+        </div>
       </form>
     </main>
   );
