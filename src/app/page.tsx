@@ -21,7 +21,10 @@ export default function Home() {
   const items: Item[] = getItems();
   return (
     <main className={styles.main}>
-      <h1>Big Five Test</h1>
+      <header className={styles.header}>
+        <h1>Big Five Test</h1>
+        <p className={styles.scrollText}>Make a choice and scroll right!</p>
+      </header>
       <form action="/result" method="get" className={styles.form}>
         {items.map((item) => (
           <fieldset key={item.id} className={styles.question}>
