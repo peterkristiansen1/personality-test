@@ -1,3 +1,9 @@
+.main {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -15,15 +21,20 @@
 
 .form {
   display: flex;
+  flex-grow: 1;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 }
 
+.question {
+  flex-grow: 1;
+}
+
 .gridContainer,
 .submitWrapper {
+  height: 100%;
   display: none;
   min-width: 100dvw;
-  height: 50dvh;
   grid-template-rows: 1fr auto auto;
   scroll-snap-align: start;
   position: relative;
@@ -44,15 +55,25 @@
   object-fit: cover;
 }
 
+.number,
 .text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
   background-color: yellow;
+  padding-inline: 1rem;
+}
+
+.number {
+  left: 1rem;
+  top: 1rem;
+}
+
+.text {
+  top: calc(50% - 1rem);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .choice {
@@ -76,8 +97,13 @@
   align-items: center;
   text-align: center;
   padding: 1rem;
+  background-color: rebeccapurple;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .radioInput:checked + .choiceText {
   background-color: yellow;
+  color: inherit;
 }

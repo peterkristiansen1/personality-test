@@ -29,7 +29,10 @@ export default function Home() {
         {items.map((item) => (
           <fieldset key={item.id} className={styles.question}>
             <div className={styles.gridContainer}>
-              <legend className={styles.text}>{item.text}</legend>
+              <legend>
+                <span className={styles.number}>{item.num}</span>
+                <span className={styles.text}>{item.text}</span>
+              </legend>
               <img
                 src="https://source.unsplash.com/random?people"
                 className={styles.image}
