@@ -28,13 +28,13 @@
 
 .question {
   flex-grow: 1;
+  min-width: 100dvw;
 }
 
 .gridContainer,
 .submitWrapper {
   height: 100%;
   display: none;
-  min-width: 100dvw;
   max-width: 100dvw;
   scroll-snap-align: start;
   position: relative;
@@ -43,6 +43,8 @@
 .gridContainer {
   grid-template-rows: 1fr auto auto;
   grid-template-columns: repeat(5, 1fr);
+  /* Fix overflow issue. */
+  min-width: inherit;
 }
 
 .question:first-child .gridContainer,
@@ -53,6 +55,7 @@
 
 .submitWrapper {
   background-color: rebeccapurple;
+  min-width: 100dvw;
 }
 .question:last-of-type:has(:checked) + .submitWrapper {
   display: flex;
@@ -109,7 +112,7 @@
   visibility: hidden;
 }
 
-.choiceText {
+.choiceLabel {
   height: 100%;
   display: flex;
   align-items: center;
@@ -120,6 +123,19 @@
   color: white;
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: bold;
+  gap: 1rem;
+}
+
+@media (max-width: 60rem) {
+  .choiceText {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 }
 
 .radioInput:checked + .choiceText {
@@ -142,9 +158,5 @@
 }
 
 .scoreSymbols {
-  font-size: 3rem;
-}
-
-.choiceText {
-  background-color: red;
+  font-size: clamp(1.5rem, 5vw, 3rem);
 }

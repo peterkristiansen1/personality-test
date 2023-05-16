@@ -58,7 +58,7 @@ export default function Home() {
                   />
                   <label
                     htmlFor={`${item.num}-${choice.score}`}
-                    className={styles.choiceText}
+                    className={styles.choiceLabel}
                   >
                     <span className={styles.scoreSymbols}>
                       {scoreSymbols[choice.score - 1]}
