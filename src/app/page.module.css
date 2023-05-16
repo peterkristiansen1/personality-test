@@ -36,16 +36,28 @@
   display: none;
   min-width: 100dvw;
   max-width: 100dvw;
-  grid-template-rows: 1fr auto auto;
   scroll-snap-align: start;
   position: relative;
 }
 
+.gridContainer {
+  grid-template-rows: 1fr auto auto;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .question:first-child .gridContainer,
 .gridContainer:has(:checked),
-.question:has(:checked) + .question .gridContainer,
-.question:last-child:has(:checked) + .submitWrapper {
+.question:has(:checked) + .question .gridContainer {
   display: grid;
+}
+
+.submitWrapper {
+  background-color: rebeccapurple;
+}
+.question:last-of-type:has(:checked) + .submitWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
@@ -57,13 +69,18 @@
 }
 
 .number,
-.text {
-  position: absolute;
+.text,
+.submitButton {
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
   background-color: yellow;
   padding-inline: 1rem;
+}
+
+.number,
+.text {
+  position: absolute;
 }
 
 .number {
@@ -96,6 +113,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 1rem;
   background-color: rebeccapurple;
@@ -107,4 +125,26 @@
 .radioInput:checked + .choiceText {
   background-color: yellow;
   color: inherit;
+}
+
+.submitButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 2em;
+  padding-block: 1em;
+  border-radius: 1em;
+}
+
+.crownIcon {
+  font-size: 10rem;
+}
+
+.scoreSymbols {
+  font-size: 3rem;
+}
+
+.choiceText {
+  background-color: red;
 }
