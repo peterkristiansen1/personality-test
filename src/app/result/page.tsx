@@ -1,5 +1,4 @@
-import { extraversionDomain } from "../page";
-import type { Domain } from "../page";
+import { Domain, TestResult, Facet } from "../../types";
 import calculateScore from "@alheimsins/bigfive-calculate-score";
 import getResult from "@alheimsins/b5-result-text";
 import styles from "./page.module.css";
@@ -9,37 +8,17 @@ interface ResultProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-interface Facet {
-  facet: number;
-  title: string;
-  text: string;
-  score: number;
-  count: number;
-  scoreText: string;
-}
-
-interface TestResult {
-  domain: Domain;
-  title: string;
-  shortDescription: string;
-  description: string;
-  scoreText: string;
-  count: number;
-  score: number;
-  facets: Facet[];
-}
-
 export default function Result({ searchParams }: ResultProps) {
   const result = {
     answers: Object.entries(searchParams).map(([facet, score]) => ({
-      domain: extraversionDomain,
+      domain: Domain.E,
       facet,
       score,
     })),
   };
   const scores = calculateScore(result);
   const testResults = getResult({ scores, lang: "en" }).find(
-    (testResult: TestResult) => testResult.domain === extraversionDomain
+    (testResult: TestResult) => testResult.domain === Domain.E
   );
 
   if (!testResults) {

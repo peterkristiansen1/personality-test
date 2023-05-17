@@ -1,36 +1,11 @@
 import styles from "./page.module.css";
 import { getItems } from "@alheimsins/b5-johnson-120-ipip-neo-pi-r";
 import Image from "next/image";
-
-interface Choice {
-  text: string;
-  score: number;
-  color: number;
-}
-
-interface Item {
-  id: string;
-  text: string;
-  keyed: string;
-  domain: string;
-  facet: number;
-  num: number;
-  choices: Choice[];
-}
-
-export enum Domain {
-  A = "A",
-  B = "B",
-  C = "C",
-  D = "D",
-  E = "E",
-}
-
-export const extraversionDomain = Domain.E;
+import { Domain, Item } from "../types";
 
 export default function Home() {
   const items: Item[] = getItems().filter(
-    (item: Item) => item.domain === extraversionDomain
+    (item: Item) => item.domain === Domain.E
   );
   const getImageUrl = (query: string) =>
     `https://source.unsplash.com/random?${query.replace(/\s/g, "-")}`;
@@ -60,9 +35,9 @@ export default function Home() {
               />
               {item.choices.map((choice) => (
                 <div key={choice.score} className={styles.choice}>
-                  {/* TODO: Make input required */}
                   <input
                     type="radio"
+                    required
                     id={`${item.num}-${choice.score}`}
                     name={item.facet.toString()}
                     value={choice.score}
