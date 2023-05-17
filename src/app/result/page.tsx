@@ -62,7 +62,7 @@ export default function Result({ searchParams }: ResultProps) {
             <li>
               <h3>{facet.title}</h3>
               <p dangerouslySetInnerHTML={{ __html: facet.text }} />
-              <div className={styles.score}>Your score: {facet.score}</div>
+              <div className={styles.score}>Your score: {facet.score} / 5</div>
             </li>
           ))}
         </ul>
