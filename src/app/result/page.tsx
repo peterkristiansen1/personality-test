@@ -1,6 +1,7 @@
 import { extraversionDomain } from "../page";
 import calculateScore from "@alheimsins/bigfive-calculate-score";
 import getResult from "@alheimsins/b5-result-text";
+import styles from "./page.module.css";
 
 interface ResultProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -48,13 +49,16 @@ export default function Result({ searchParams }: ResultProps) {
   );
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1>{testResults.title}</h1>
-      <p dangerouslySetInnerHTML={{ __html: testResults.description }} />
-      <div>
-        Your score: {testResults.score} {testResults.scoreText}
-      </div>
-      <p dangerouslySetInnerHTML={{ __html: testResults.text }} />
+      <section>
+        <h2>Introvert or extrovert?</h2>
+        <p dangerouslySetInnerHTML={{ __html: testResults.description }} />
+        <div className={styles.scoreWrapper}>
+          Your overall score: {testResults.score} {testResults.scoreText}
+        </div>
+        <p dangerouslySetInnerHTML={{ __html: testResults.text }} />
+      </section>
       <section>
         <h2>Test results</h2>
         <ul>
@@ -62,7 +66,7 @@ export default function Result({ searchParams }: ResultProps) {
             <li>
               <h3>{facet.title}</h3>
               <p dangerouslySetInnerHTML={{ __html: facet.text }} />
-              <div>Your score: {facet.score}</div>
+              <div className={styles.score}>Your score: {facet.score}</div>
             </li>
           ))}
         </ul>

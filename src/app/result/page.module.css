@@ -1,0 +1,56 @@
+.main {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 5%;
+  font-size: 1.125em;
+}
+
+.main p {
+  max-width: 36em;
+  line-height: 1.5;
+  margin-block: 1em;
+}
+
+.main ul {
+  list-style: none;
+}
+
+.main li {
+  margin-block: 2rem;
+  border: 0.0625rem solid currentColor;
+  padding-inline: 2em;
+  padding-block: 1em;
+  border-radius: 0.5em;
+  width: fit-content;
+}
+
+.main section:not(:last-of-type) {
+  margin-block-end: 3rem;
+}
+
+.main h1 {
+  margin-block-end: 1em;
+}
+
+.main h2,
+.main h3 {
+  margin-block: 1em;
+}
+
+.scoreWrapper,
+.score {
+  display: inline-block;
+  padding-inline: 0.5em;
+  padding-block: 0.5em;
+  margin-block: 1rem;
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  background-color: yellow;
+  text-transform: uppercase;
+}
+
+.scoreWrapper {
+  font-size: 1.5em;
+}
