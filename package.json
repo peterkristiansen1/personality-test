@@ -1,14 +1,16 @@
 {
   "name": "personality-test",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prettier-watch": "npx onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
-    "dev-start": "run-p prettier-watch dev"
+    "dev-start": "PORT=8765 run-p prettier-watch dev ts-watch",
+    "ts-watch": "npx tsc --noEmit --watch"
   },
   "dependencies": {
     "@alheimsins/b5-johnson-120-ipip-neo-pi-r": "^6.0.5",
