@@ -5,12 +5,10 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
+  padding: 0.75rem;
   background-color: rebeccapurple;
   color: white;
+  text-align: center;
 }
 
 .scrollText {
@@ -29,6 +27,14 @@
 .question {
   flex-grow: 1;
   min-width: 100dvw;
+  border: none;
+  display: none;
+}
+
+.question:first-child,
+.question:has(:checked),
+.question:has(:checked) + .question {
+  display: block;
 }
 
 .gridContainer,
@@ -41,21 +47,17 @@
 }
 
 .gridContainer {
+  display: grid;
   grid-template-rows: 1fr auto auto;
   grid-template-columns: repeat(5, 1fr);
   /* Fix overflow issue. */
   min-width: inherit;
 }
 
-.question:first-child .gridContainer,
-.gridContainer:has(:checked),
-.question:has(:checked) + .question .gridContainer {
-  display: grid;
-}
-
 .submitWrapper {
   background-color: rebeccapurple;
   min-width: 100dvw;
+  padding-inline: 10dvw;
 }
 .question:last-of-type:has(:checked) + .submitWrapper {
   display: flex;
@@ -73,8 +75,9 @@
 
 .number,
 .text,
+.scrollMessage,
 .submitButton {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
   text-align: center;
   background-color: yellow;
@@ -82,7 +85,7 @@
 }
 
 .number,
-.text {
+.textWrapper {
   position: absolute;
 }
 
@@ -91,10 +94,18 @@
   top: 1rem;
 }
 
-.text {
+.textWrapper {
   top: calc(50% - 1rem);
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.scrollMessage {
+  margin-block-start: 1rem;
+}
+
+.question:not(:has(:checked)) .scrollMessage {
+  visibility: hidden;;
 }
 
 .choice {
@@ -151,10 +162,11 @@
   padding-inline: 2em;
   padding-block: 1em;
   border-radius: 1em;
+  text-transform: uppercase;
 }
 
 .crownIcon {
-  font-size: 10rem;
+  font-size: clamp(3rem, 16vw, 10rem);
 }
 
 .scoreSymbols {

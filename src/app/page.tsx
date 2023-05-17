@@ -29,16 +29,18 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <header className={styles.header}>
-        <h1>Big Five Test</h1>
-        <p className={styles.scrollText}>Make a choice and scroll right!</p>
+        <h1>Introvert / Extrovert Test</h1>
       </header>
       <form action="/result" method="get" className={styles.form}>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <fieldset key={item.id} className={styles.question}>
             <div className={styles.gridContainer}>
               <legend>
-                <span className={styles.number}>{item.num}</span>
-                <span className={styles.text}>{item.text}</span>
+                <span className={styles.number}>{index + 1}</span>
+                <div className={styles.textWrapper}>
+                  <p className={styles.text}>{item.text}</p>
+                  <p className={styles.scrollMessage}>Scroll right →</p>
+                </div>
               </legend>
               <img
                 src={getImageUrl(item.text)}
