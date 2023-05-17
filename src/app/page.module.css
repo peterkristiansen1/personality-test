@@ -120,7 +120,13 @@
 
 .radioInput {
   position: absolute;
-  visibility: hidden;
+  opacity: 0;
+}
+
+.radioInput:focus-visible + .choiceLabel,
+.radioInput:checked + .choiceLabel {
+  outline: 0.125rem solid yellow;
+  outline-offset: -0.125rem;
 }
 
 .choiceLabel {

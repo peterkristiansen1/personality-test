@@ -21,8 +21,7 @@ export const extraversionDomain = "E";
 
 export default function Home() {
   const items: Item[] = getItems()
-    .filter((item) => item.domain === extraversionDomain)
-    .slice(0, 2);
+  .filter((item) => item.domain === extraversionDomain);
   const getImageUrl = (query: string) =>
     `https://source.unsplash.com/random?${query.replace(/\s/g, "-")}`;
   const scoreSymbols = ["👎👎", "👎", "👎👍", "👍", "👍👍"];
@@ -85,6 +84,7 @@ export default function Home() {
               strokeWidth="2"
               className={styles.crownIcon}
               viewBox="0 0 24 24"
+              aria-hidden
             >
               <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"></path>
             </svg>
