@@ -42,6 +42,10 @@ export default function Result({ searchParams }: ResultProps) {
     (testResult: TestResult) => testResult.domain === extraversionDomain
   );
 
+  if (!testResults) {
+    return null;
+  }
+
   return (
     <main className={styles.main}>
       <h1>{testResults.title}</h1>
@@ -59,7 +63,7 @@ export default function Result({ searchParams }: ResultProps) {
         <h2>Test results</h2>
         <ul>
           {testResults.facets.map((facet: Facet) => (
-            <li>
+            <li key={facet.count}>
               <h3>{facet.title}</h3>
               <p dangerouslySetInnerHTML={{ __html: facet.text }} />
               <div className={styles.score}>Your score: {facet.score} / 5</div>
