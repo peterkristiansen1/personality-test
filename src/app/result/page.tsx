@@ -58,7 +58,7 @@ export default function Result({ searchParams }: ResultProps) {
         <div className={styles.scoreWrapper}>
           Your overall score: {testResults.score} {testResults.scoreText}
         </div>
-        <p dangerouslySetInnerHTML={{ __html: testResults.text }} />
+        <p><strong dangerouslySetInnerHTML={{ __html: testResults.text }} /></p>
       </section>
       <section>
         <h2>Test results</h2>
