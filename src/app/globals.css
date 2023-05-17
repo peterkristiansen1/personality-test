@@ -8,3 +8,7 @@ a {
   color: inherit;
   text-underline-offset: 0.1875rem;
 }
+
+html {
+  font-family: system-ui, sans-serif;
+}
