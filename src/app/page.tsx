@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import { getItems } from "@alheimsins/b5-johnson-120-ipip-neo-pi-r";
+import Image from "next/image";
 
 interface Choice {
   text: string;
@@ -50,11 +51,12 @@ export default function Home() {
                   <p className={styles.scrollMessage}>Scroll right →</p>
                 </div>
               </legend>
-              <img
+              <Image
                 src={getImageUrl(item.text)}
                 className={styles.image}
                 loading={item.num < 1 ? "eager" : "lazy"}
                 alt=""
+                fill={true}
               />
               {item.choices.map((choice) => (
                 <div key={choice.score} className={styles.choice}>
