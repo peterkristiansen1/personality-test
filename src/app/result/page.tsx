@@ -2,6 +2,7 @@ import { extraversionDomain } from "../page";
 import calculateScore from "@alheimsins/bigfive-calculate-score";
 import getResult from "@alheimsins/b5-result-text";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 interface ResultProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -71,6 +72,9 @@ export default function Result({ searchParams }: ResultProps) {
           ))}
         </ul>
       </section>
+        <footer>
+          <Link href="/">← Take text again</Link>
+        </footer>
     </main>
   );
 }
