@@ -1,4 +1,5 @@
 import { extraversionDomain } from "../page";
+import type { Domain } from "../page";
 import calculateScore from "@alheimsins/bigfive-calculate-score";
 import getResult from "@alheimsins/b5-result-text";
 import styles from "./page.module.css";
@@ -15,14 +16,6 @@ interface Facet {
   score: number;
   count: number;
   scoreText: string;
-}
-
-enum Domain {
-  A = "A",
-  B = "B",
-  C = "C",
-  D = "D",
-  E = "E",
 }
 
 interface TestResult {
@@ -58,7 +51,9 @@ export default function Result({ searchParams }: ResultProps) {
         <div className={styles.scoreWrapper}>
           Your overall score: {testResults.score} {testResults.scoreText}
         </div>
-        <p><strong dangerouslySetInnerHTML={{ __html: testResults.text }} /></p>
+        <p>
+          <strong dangerouslySetInnerHTML={{ __html: testResults.text }} />
+        </p>
       </section>
       <section>
         <h2>Test results</h2>
@@ -72,9 +67,9 @@ export default function Result({ searchParams }: ResultProps) {
           ))}
         </ul>
       </section>
-        <footer>
-          <Link href="/">← Take text again</Link>
-        </footer>
+      <footer>
+        <Link href="/">← Take text again</Link>
+      </footer>
     </main>
   );
 }

@@ -17,11 +17,20 @@ interface Item {
   choices: Choice[];
 }
 
-export const extraversionDomain = "E";
+export enum Domain {
+  A = "A",
+  B = "B",
+  C = "C",
+  D = "D",
+  E = "E",
+}
+
+export const extraversionDomain = Domain.E;
 
 export default function Home() {
-  const items: Item[] = getItems()
-  .filter((item) => item.domain === extraversionDomain);
+  const items: Item[] = getItems().filter(
+    (item: Item) => item.domain === extraversionDomain
+  );
   const getImageUrl = (query: string) =>
     `https://source.unsplash.com/random?${query.replace(/\s/g, "-")}`;
   const scoreSymbols = ["👎👎", "👎", "👎👍", "👍", "👍👍"];
@@ -53,7 +62,7 @@ export default function Home() {
                   <input
                     type="radio"
                     id={`${item.num}-${choice.score}`}
-                    name={item.facet}
+                    name={item.facet.toString()}
                     value={choice.score}
                     className={styles.radioInput}
                   />
