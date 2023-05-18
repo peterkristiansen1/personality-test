@@ -19,14 +19,14 @@ The application uses modern CSS which at the time of writing is [not supported](
 
 ## Getting started with development
 
-First, run the development server:
-
+First, install dependencies:
 ```bash
-npm run dev-start
-# or
-yarn dev-start
-# or
-pnpm dev-start
+npm install
+```
+
+Then, run the development server:
+```bash
+npm run start-dev
 ```
 
 Open [http://localhost:8765](http://localhost:8765) with your browser to see the result.

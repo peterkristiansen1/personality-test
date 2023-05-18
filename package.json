@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "prettier-watch": "npx onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
-    "dev-start": "PORT=8765 run-p prettier-watch dev ts-watch",
+    "start-dev": "PORT=8765 run-p prettier-watch dev ts-watch",
     "ts-watch": "npx tsc --noEmit --watch"
   },
   "dependencies": {
