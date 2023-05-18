@@ -1,16 +1,16 @@
+"use client";
+
 import { Domain, TestResult, Facet } from "../../types";
 import calculateScore from "@alheimsins/bigfive-calculate-score";
 import getResult from "@alheimsins/b5-result-text";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-interface ResultProps {
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export default function Result({ searchParams }: ResultProps) {
+export default function Result() {
+  const searchParams = useSearchParams();
   const result = {
-    answers: Object.entries(searchParams).map(([facet, score]) => ({
+    answers: [...searchParams.entries()].map(([facet, score]) => ({
       domain: Domain.E,
       facet,
       score,
