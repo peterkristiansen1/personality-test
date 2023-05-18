@@ -13,6 +13,10 @@ questions and answers:
 - [@alheimsins/b5-result-text](https://github.com/Alheimsins/b5-result-text)
 - [@alheimsins/bigfive-calculate-score](https://github.com/Alheimsins/bigfive-calculate-score)
 
+## Browser Support
+
+The application uses modern CSS which at the time of writing is [not supported](https://caniuse.com/?search=%3Ahas) by the Firefox browser.
+
 ## Getting started with development
 
 First, run the development server:
