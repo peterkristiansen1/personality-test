@@ -9,7 +9,13 @@ export default function Home() {
   );
   const getImageUrl = (query: string) =>
     `https://source.unsplash.com/random?${query.replace(/\s/g, "-")}`;
-  const scoreSymbols = ["👎👎", "👎", "👎👍", "👍", "👍👍"];
+  const scoreSymbols = {
+    "Very Inaccurate": "👎👎",
+    "Moderately Inaccurate": "👎",
+    "Neither Accurate Nor Inaccurate": "👎👍",
+    "Moderately Accurate": "👍",
+    "Very Accurate": "👍👍",
+  };
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -48,7 +54,7 @@ export default function Home() {
                     className={styles.choiceLabel}
                   >
                     <span className={styles.scoreSymbols}>
-                      {scoreSymbols[choice.score - 1]}
+                      {scoreSymbols[choice.text]}
                     </span>
                     <span className={styles.choiceText}>{choice.text}</span>
                   </label>

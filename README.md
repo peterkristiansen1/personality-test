@@ -20,11 +20,13 @@ The application uses modern CSS which at the time of writing is [not supported](
 ## Getting started with development
 
 First, install dependencies:
+
 ```bash
 npm install
 ```
 
 Then, run the development server:
+
 ```bash
 npm run start-dev
 ```

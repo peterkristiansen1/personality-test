@@ -27,7 +27,12 @@ export interface TestResult {
 }
 
 export interface Choice {
-  text: string;
+  text:
+    | "Very Inaccurate"
+    | "Moderately Inaccurate"
+    | "Neither Accurate Nor Inaccurate"
+    | "Moderately Accurate"
+    | "Very Accurate";
   score: number;
   color: number;
 }
