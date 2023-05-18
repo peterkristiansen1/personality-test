@@ -11,6 +11,20 @@
   text-align: center;
 }
 
+.firefoxMessage {
+  display: none;
+}
+
+@-moz-document url-prefix() {
+  .firefoxMessage {
+    display: block;
+    text-align: center;
+    margin-block-start: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
 .scrollText {
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: bold;

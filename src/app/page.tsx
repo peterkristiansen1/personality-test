@@ -21,6 +21,10 @@ export default function Home() {
       <header className={styles.header}>
         <h1>Introvert / Extrovert Test</h1>
       </header>
+      <p className={styles.firefoxMessage}>
+        This app is not working on Firefox yet. Please use Chrome, Edge or
+        Safari instead.
+      </p>
       <form action="/result" method="get" className={styles.form}>
         {items.map((item, index) => (
           <fieldset key={item.id} className={styles.question}>
